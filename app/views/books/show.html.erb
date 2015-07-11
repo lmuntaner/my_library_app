@@ -1,0 +1,17 @@
+<h1><%= @book.title %></h1>
+
+<h4>by <%= @book.author %></h4>
+
+<ul>
+  <% @comments.each do |comment| %>
+    <li><%= comment.text_comment %></li>
+  <% end %>
+</ul>
+
+<%= form_for([@book, @comment]) do |f| %>
+  <%= f.label :text_comment %>
+  <br>
+  <%= f.text_area :text_comment %>
+  <br>
+  <%= f.submit %>
+<% end %>
